@@ -1,0 +1,30 @@
+import win32gui
+import pyautogui
+import clipboard
+
+hwnd = win32gui.FindWindow(None, 'Untitled - Appointment  ')
+win32gui.SetForegroundWindow(hwnd)
+win32gui.ShowWindow(hwnd, 9)
+
+pyautogui.hotkey('shift','tab')
+pyautogui.hotkey('shift','tab')
+
+pyautogui.hotkey('ctrl','c')
+endtime = clipboard.paste()
+
+pyautogui.hotkey('shift','tab')
+pyautogui.hotkey('shift','tab')
+pyautogui.hotkey('ctrl','c')
+endtimedate = clipboard.paste()
+
+pyautogui.hotkey('shift','tab')
+pyautogui.hotkey('ctrl','c')
+starttime = clipboard.paste()
+
+pyautogui.hotkey('shift','tab')
+pyautogui.hotkey('shift','tab')
+pyautogui.hotkey('ctrl','c')
+starttimedate = clipboard.paste()
+
+
+print(starttimedate, starttime, endtimedate, endtime)
